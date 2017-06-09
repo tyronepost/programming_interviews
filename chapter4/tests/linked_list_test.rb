@@ -24,9 +24,9 @@ class LinkedListTest < Test::Unit::TestCase
   end
 
   def test_delete_from_front
-    @linked_list.insert_in_front("a")
-    @linked_list.insert_in_front("b")
-    @linked_list.insert_in_front("c")
+    @linked_list.insert_in_front "a"
+    @linked_list.insert_in_front "b"
+    @linked_list.insert_in_front "c"
 
     assert_equal 3, @linked_list.size
 
@@ -40,5 +40,16 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal 0, @linked_list.size
     @linked_list.delete_from_front
     assert_equal 0, @linked_list.size
+  end
+
+  def test_find
+    @linked_list.insert_in_front "a"
+    @linked_list.insert_in_front "b"
+    @linked_list.insert_in_front "c"
+
+    node = @linked_list.find "a"
+    assert_not_nil node
+    assert_equal "a", node.data
+    assert_equal nil, node.next
   end
 end

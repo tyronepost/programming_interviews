@@ -29,4 +29,12 @@ class LinkedList
       @size -= 1
     end
   end
+
+  def find(value)
+    node = @head
+    while not node.nil? and node.data != value
+      node = node.next
+    end
+    node
+  end
 end
