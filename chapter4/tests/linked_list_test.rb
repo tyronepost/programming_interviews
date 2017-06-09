@@ -22,4 +22,23 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal 2, @linked_list.head.data
     assert_equal 2, @linked_list.size
   end
+
+  def test_delete_from_front
+    @linked_list.insert_in_front("a")
+    @linked_list.insert_in_front("b")
+    @linked_list.insert_in_front("c")
+
+    assert_equal 3, @linked_list.size
+
+    @linked_list.delete_from_front
+
+    assert_equal 2, @linked_list.size
+    assert_equal "b", @linked_list.head.data
+  end
+
+  def test_delete_from_front_on_empty
+    assert_equal 0, @linked_list.size
+    @linked_list.delete_from_front
+    assert_equal 0, @linked_list.size
+  end
 end

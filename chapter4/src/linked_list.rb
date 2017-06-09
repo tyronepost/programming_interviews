@@ -20,4 +20,13 @@ class LinkedList
     end
     @size += 1
   end
+
+  def delete_from_front
+    unless @size == 0
+      node = @head
+      @head = node.next
+      node.next = nil
+      @size -= 1
+    end
+  end
 end
