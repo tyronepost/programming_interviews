@@ -27,6 +27,7 @@ class LinkedList
       @head = node.next
       node.next = nil
       @size -= 1
+      node.data
     end
   end
 
